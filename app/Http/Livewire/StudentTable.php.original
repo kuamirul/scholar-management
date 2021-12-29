@@ -1,0 +1,201 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\Student;
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\TimeColumn;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\BooleanColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+
+class StudentTable extends LivewireDatatable
+{
+    public $model = Student::class;
+	public $hideable = 'select';
+    public $exportable = true;
+    public $complex = true;
+    public $persistComplexQuery = true;
+    // public $afterTableSlot = 'components.selected';
+	
+	public function builder()
+    {
+        // return User::query()->leftJoin('planets', 'planets.id', 'users.planet_id');
+		return Student::query();
+    }
+	
+	
+    public function columns()
+    {
+        return [
+            Column::checkbox(),
+
+            NumberColumn::name('student_id')
+                ->label('ID')
+                ->filterable()
+                // ->linkTo('user', 4),
+				->searchable(),
+
+            Column::name('student_name')
+                ->label('student_name'),
+                // ->filterable($this->planets)->alignRight(),
+				// ->searchable(),
+
+            Column::name('student_nric')
+                ->label('student_nric'),
+                // ->defaultSort('desc')
+                // ->filterable($this->regions)
+                // ->truncate(8)
+                // ->searchable(),
+
+            Column::name('address')
+                // ->filterable()
+                // ->editable(),
+				->label('address')
+				->editable(),
+
+            Column::name('student_email')
+                ->label('student_email'),
+                // ->truncate()
+                // ->filterable(),
+
+            Column::name('acc_number')
+                ->label('acc_number')
+                ->alignCenter(),
+                // ->filterable(['Audi', 'BMW', 'Caterham', 'Dodge', 'Ferrari', 'Jaguar', 'Lamborghini', 'Porsche']),
+
+            Column::name('phone_number')
+                ->label('phone_number'),
+                // ->filterable(),
+                // ->alignRight(),
+
+            Column::name('sponsor_type_id')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('sponsor_type_id'),
+
+            Column::name('sponsor_status')
+                // ->filterable()
+				// ->filterable(['Graduated', 'Active','Inactive','Terminated'])
+                // ->exportCallback(function ($value) {
+                    // return (string) $value;
+                // })
+                ->label('sponsor_status'),
+
+            // Column::callback(['id', 'planet.name'], function ($id, $planetName) {
+                // return "User $id hails from $planetName";
+            // })->label('Computed (php closure)')
+                // ->filterOn('planets.name')
+                // ->filterable($this->planets),
+
+            // Column::raw('CONCAT("User ", users.id, " hails from ", planets.name) AS planetName')
+                // ->label('Computed (raw SQL)')
+                // ->filterable(),
+			
+			DateColumn::name('sponsor_start_date')
+                ->label('sponsor_start_date'),
+                // ->filterable(),
+				
+			DateColumn::name('sponsor_end_date')
+                ->label('sponsor_end_date'),
+                // ->filterable(),	
+			
+			Column::name('father_name')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('father name'),
+			
+			Column::name('father_nric')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('father_nric'),
+			
+			Column::name('father_phone_number')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('father_phone_number'),				
+			
+			Column::name('father_occupation')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('father_occupation'),
+				
+			Column::name('father_income')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('father_income'),
+
+			Column::name('mother_name')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('mother name'),
+			
+			Column::name('mother_nric')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('mother_nric'),
+			
+			Column::name('mother_phone_number')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('mother_phone_number'),				
+			
+			Column::name('mother_occupation')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('mother_occupation'),
+				
+			Column::name('mother_income')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('mother_income'),
+				
+			Column::name('guarantor1_name')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor1 name'),
+			
+			Column::name('guarantor1_nric')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor1_nric'),
+			
+			Column::name('guarantor1_phone_number')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor1_phone_number'),				
+			
+			Column::name('guarantor1_occupation')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor1_occupation'),
+				
+			Column::name('guarantor1_income')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor1_income'),	
+				
+			Column::name('guarantor2_name')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor2 name'),
+			
+			Column::name('guarantor2_nric')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor2_nric'),
+			
+			Column::name('guarantor2_phone_number')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor2_phone_number'),				
+			
+			Column::name('guarantor2_occupation')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor2_occupation'),
+				
+			Column::name('guarantor2_income')
+                // ->filterable($this->weapons->pluck('name'))
+                ->label('guarantor2_income'),		
+				
+            // Column::raw("IF(planets.orbital_period REGEXP '^-?[0-9]+$', CONCAT(ROUND(DATEDIFF(NOW(), users.dob) / planets.orbital_period, 1), ' ', planets.name, ' years'), '---') AS native_age")
+                // ->filterable()
+                // ->hide(),
+
+            // Column::callback('bedtime', 'computeBedtime')
+                // ->label('Go to bed')
+                // ->hide(),
+
+            // Column::scope('selectGroupedWeaponNames', 'Weapons')
+                // ->filterable($this->weapons, 'filterWeaponNames'),
+
+            // BooleanColumn::scope('hasLightSaber', 'Light Saber')
+                // ->filterable(null, 'filterHasLightSaber')
+        ];
+    }
+}

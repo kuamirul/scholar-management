@@ -1,0 +1,4 @@
+[21-Oct-2021 09:20:33 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Database\Eloquent\Model' not found in /home3/rhaglent/public_html/breeze/app/Models/News.php:8
+Stack trace:
+#0 {main}
+  thrown in /home3/rhaglent/public_html/breeze/app/Models/News.php on line 8
