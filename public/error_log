@@ -1,0 +1,11 @@
+[14-Sep-2021 16:28:08 UTC] PHP Warning:  Module 'redis' already loaded in Unknown on line 0
+[14-Sep-2021 16:29:26 UTC] PHP Warning:  Module 'redis' already loaded in Unknown on line 0
+[20-Sep-2021 16:44:46 UTC] PHP Fatal error:  Cannot declare class App\Http\Livewire\Semester because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/Semester.php on line 8
+[20-Sep-2021 16:47:10 UTC] PHP Fatal error:  Cannot declare class App\Http\Livewire\Semester because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/Semester.php on line 8
+[20-Sep-2021 16:49:17 UTC] PHP Fatal error:  Cannot declare class App\Http\Livewire\Semester because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/Semester.php on line 8
+[20-Sep-2021 16:49:40 UTC] PHP Fatal error:  Cannot declare class App\Http\Livewire\Semester because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/Semester.php on line 8
+[20-Sep-2021 16:51:02 UTC] PHP Fatal error:  Cannot declare class App\Http\Livewire\Semester because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/Semester.php on line 8
+[03-Oct-2021 02:42:43 UTC] PHP Fatal error:  Cannot declare class App\Models\Users, because the name is already in use in /home3/rhaglent/public_html/breeze/app/Models/User.php on line 12
+[03-Oct-2021 05:45:07 UTC] PHP Fatal error:  Cannot use Hash as Hash because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/CreateStudent.php on line 10
+[03-Oct-2021 05:45:12 UTC] PHP Fatal error:  Cannot use Hash as Hash because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/CreateStudent.php on line 10
+[03-Oct-2021 08:25:26 UTC] PHP Fatal error:  Cannot use App\Models\User as StudentInfo because the name is already in use in /home3/rhaglent/public_html/breeze/app/Http/Livewire/Profile.php on line 6
